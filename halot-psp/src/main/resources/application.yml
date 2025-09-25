@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: development
+  main:
+    allow-bean-definition-overriding: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+
+server:
+  error:
+    path: /error
+    whitelabel:
+      enabled: false
