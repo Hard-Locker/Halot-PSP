@@ -46,7 +46,7 @@ public class Transaction {
   /**
    * Currency code (e.g., USD, EUR) following ISO 4217.
    */
-  private String currency;
+  private CurrencyCode currency;
 
   /**
    * Unique identifier of the merchant initiating the transaction.
