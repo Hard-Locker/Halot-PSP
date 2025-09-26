@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.halot.nikitazolin.psp.model.CurrencyCode;
 import com.halot.nikitazolin.psp.model.Status;
 import com.halot.nikitazolin.psp.model.Transaction;
 
@@ -25,11 +26,11 @@ public class TransactionRepositoryTest {
   private TransactionRepository transactionRepository;
 
   private Transaction transaction1 = new Transaction(UUID.fromString("00000000-0000-0000-0000-000000000001"), "123456",
-      "1234", YearMonth.of(2027, 5), new BigDecimal("100.50"), "USD", "abc123",
+      "1234", YearMonth.of(2027, 5), new BigDecimal("100.50"), CurrencyCode.USD, "abc123",
       LocalDateTime.of(2025, 1, 1, 12, 30, 50), LocalDateTime.of(2025, 1, 1, 12, 31, 50), Status.APPROVED,
       Status.APPROVED);
   private Transaction transaction2 = new Transaction(UUID.fromString("00000000-0000-0000-0000-000000000002"), "654321",
-      "4321", YearMonth.of(2030, 10), new BigDecimal("200.50"), "EUR", "321cba",
+      "4321", YearMonth.of(2030, 10), new BigDecimal("200.50"), CurrencyCode.USD, "321cba",
       LocalDateTime.of(2025, 12, 12, 12, 59, 59), LocalDateTime.of(2025, 12, 12, 22, 59, 59), Status.DENIED,
       Status.DENIED);
 
