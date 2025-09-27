@@ -1,0 +1,6 @@
+<configuration>
+  <logger
+    name="com.halot.nikitazolin.psp.e.GlobalExceptionHandler"
+    level="ERROR" />
+
+</configuration>
