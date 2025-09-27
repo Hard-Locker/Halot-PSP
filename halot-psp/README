@@ -1,1 +1,50 @@
 #Hard Locker PSP
+
+A simple Payment Service Provider (PSP) system that demonstrates payment request handling, BIN-based routing, and mock communication with payment acquirers.
+
+## Features
+
+• REST API for payment processing
+• Validation of card details (Luhn algorithm, format checks)
+• Transaction lifecycle management (Pending → Approved/Denied)
+• BIN routing:
+  - Even digit sum → Acquirer A
+  - Odd digit sum → Acquirer B
+• Mock acquirer logic:
+  - Approves if last digit of card number is even
+  - Denies if last digit of card number is odd
+• In-memory storage for transactions
+• Clean architecture with layered structure and design patterns
+
+## Tech Stack
+
+• Java 23
+• Spring Boot 3.5
+• Spring Validation
+• Lombok
+• SLF4J + Logback for logging
+• JUnit 6 for testing
+• Swagger UI
+
+To make the code easier to read, I followed generally accepted standards and principles of SOLID, and the code is also covered with tests.
+
+## Requirements for assembly and launch
+• Java 23
+• Maven 3.9.9+
+
+## Assembly and launch via bash
+mvn clean install
+mvn spring-boot:run
+
+For further launch you can use command like a "java -jar halot-psp-0.0.13.jar"
+
+## API Documentation (Swagger)
+
+After running the application, you can explore the API via Swagger UI:
+• Swagger UI: http://localhost:8080/swagger-ui/index.html
+• OpenAPI JSON: http://localhost:8080/v3/api-docs
+
+## Contacts
+
+For support or inquiries, please contact us via:
+• Email: nikita.98.zolin@gmail.com
