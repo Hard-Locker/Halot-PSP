@@ -28,15 +28,22 @@ A simple Payment Service Provider (PSP) system that demonstrates payment request
 
 To make the code easier to read, I followed generally accepted standards and principles of SOLID, and the code is also covered with tests.
 
-## Requirements for assembly and launch
+## Requirements for build and launch
 • Java 23
 • Maven 3.9.9+
 
-## Assembly and launch via bash
+## Build and launch via bash
 mvn clean install
 mvn spring-boot:run
 
 For further launch you can use command like a "java -jar halot-psp-0.0.13.jar"
+
+## Docker
+
+Also you can build and run app via Docker. Commands for building and running:
+mvn clean package
+docker build -t halot-psp .
+docker run -p 8080:8080 halot-psp
 
 ## API Documentation (Swagger)
 
