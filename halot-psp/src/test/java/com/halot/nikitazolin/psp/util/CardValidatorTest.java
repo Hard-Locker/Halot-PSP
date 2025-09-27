@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.YearMonth;
+
 @DisplayName("CardValidator Unit Tests")
 class CardValidatorTest {
 
@@ -199,5 +201,41 @@ class CardValidatorTest {
 
     // Assert
     assertTrue(result, "Card number with extra characters but a valid core must be valid");
+  }
+  
+  @Test
+  void isCardExpired_ExpiryDateInFuture_ReturnsFalse() {
+    // Arrange
+    YearMonth expiryDate = YearMonth.now().plusYears(1);
+
+    // Act
+    boolean isExpired = CardValidator.isCardExpired(expiryDate);
+
+    // Assert
+    assertFalse(isExpired, "A card with an expiration date next year should not be considered expired");
+  }
+
+  @Test
+  void isCardExpired_ExpiryDateInPast_ReturnsTrue() {
+    // Arrange
+    YearMonth expiryDate = YearMonth.now().minusYears(1);
+
+    // Act
+    boolean isExpired = CardValidator.isCardExpired(expiryDate);
+
+    // Assert
+    assertTrue(isExpired, "A card with an expiration date last year should be considered expired");
+  }
+
+  @Test
+  void isCardExpired_ExpiryDateIsCurrentMonth_ReturnsFalse() {
+    // Arrange
+    YearMonth expiryDate = YearMonth.now();
+
+    // Act
+    boolean isExpired = CardValidator.isCardExpired(expiryDate);
+
+    // Assert
+    assertFalse(isExpired, "The card with an expiration date in the current month must be valid");
   }
 }

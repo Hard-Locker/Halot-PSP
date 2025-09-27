@@ -1,5 +1,7 @@
 package com.halot.nikitazolin.psp.util;
 
+import java.time.YearMonth;
+
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +25,15 @@ public class CardValidator {
 
     // Checking the validity of a number using the Luhn algorithm
     return checkByLuhnAlgorithm(cleanNumber);
+  }
+
+  /**
+   * Checks if the card is valid on the current date 
+   * @param expiryDate card expiration date (year and month) 
+   * @return true if the card is expired, false if valid
+   */
+  public boolean isCardExpired(YearMonth expiryDate) {
+    return expiryDate.isBefore(YearMonth.now());
   }
 
   /**
